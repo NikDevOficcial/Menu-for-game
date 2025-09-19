@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://b345s4sdpihmx"]
+
+[sub_resource type="GDScript" id="GDScript_4h3mk"]
+resource_name = "menu"
+script/source = "extends Node2D
+
+
+func _on_play_pressed() -> void:
+	get_tree().change_scene_to_file(\"res://scenes/main.tscn\")
+
+func _on_quit_pressed() -> void:
+	get_tree().quit()
+"
+
+[node name="menu" type="Node2D"]
+script = SubResource("GDScript_4h3mk")
+
+[node name="play" type="Button" parent="."]
+offset_left = 376.0
+offset_top = 170.0
+offset_right = 722.0
+offset_bottom = 312.0
+theme_override_font_sizes/font_size = 70
+text = "Play"
+metadata/_edit_use_anchors_ = true
+
+[node name="quit" type="Button" parent="."]
+offset_left = 376.0
+offset_top = 360.0
+offset_right = 722.0
+offset_bottom = 502.0
+theme_override_font_sizes/font_size = 70
+text = "Quit"
+metadata/_edit_use_anchors_ = true
+
+[connection signal="pressed" from="play" to="." method="_on_play_pressed"]
+[connection signal="pressed" from="quit" to="." method="_on_quit_pressed"]
